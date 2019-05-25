@@ -214,7 +214,7 @@ int AI_move(int index){
 		}
 	}
 	if(vec.empty()){
-		cout <<  "YOU'VE beat me?" << endl;
+		//cout <<  "YOU'VE beat me?" << endl;
 		int buf[2]={0};
 		for(int b = 0; b < child[index].size(); b++){
 			int counter = 0;
@@ -228,7 +228,7 @@ int AI_move(int index){
 				buf[0] = 100*counter/child[child[index][b]].size();
 			}
 		}
-		cout << buf[0] << endl;
+		//cout << buf[0] << endl;
 		output(child[index][buf[1]]);
 		return child[index][buf[1]];
 	}
