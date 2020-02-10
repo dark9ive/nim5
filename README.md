@@ -21,6 +21,14 @@ Row No.
    5      * * * * *
 ```
 
+### Removing piece
+
+Players take turns removing piece(s) on the board comply with the following rules:  
+
+ - Player has to remove 1~3 pieces on the board.
+ - The pieces been removed in the same round must adjacent to each other.
+ - The pieces been removed in the same round must be able to link with a straight line.
+
 ## Compile environment
 
 All of the codes are Compiled and tested in the following enviornment.  
