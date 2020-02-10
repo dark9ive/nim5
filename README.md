@@ -31,8 +31,8 @@ Players take turns removing piece(s) on the board comply with the following rule
 
 For example, in the following situation, the player can remove the pieces "0, 1, 3" in his/her round.  
 But removing pieces "0, 4, C" is illegal.(Not adjacent to each other.)  
-Removing "0, 2, 4" is also illegal.("0, 2, 4" can't be linked with a straight line.)  
-Removing "0, 2, 5" is also illegal.("5" has been removed.)  
+Removing __"0, 2, 4"__ is also illegal.("0, 2, 4" can't be linked with a straight line.)  
+Removing __0, 2, 5__ is also illegal.("5" has been removed.)  
 
 ```
 Row No.
