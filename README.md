@@ -8,7 +8,7 @@ You can either play with the other player local or play with my AI.
 ### Game rules
 
 You can find the basic rules of nim [here](https://en.wikipedia.org/wiki/Nim).  
-In this project, there are 5 rows of pieces, and the _N_-th row contains _N_ pieces.  
+In this project, there are 5 rows of pieces, and the ___N___-th row contains ___N___ pieces.  
 
 ## Compile environment
 
