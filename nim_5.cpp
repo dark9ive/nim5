@@ -17,7 +17,13 @@ int output(int index){
 				cout << "X ";
 			}
 			else{
-				cout << "* ";
+				int num = (1+level)*level/2-level+a;
+				if(num < 10){
+					cout << num << " ";
+				}
+				else{
+					cout << (char)(num-10+'A') << " ";
+				}
 			}
 			index = index>>1;
 		}
@@ -41,19 +47,9 @@ void find_children(void){
 					if(level-num >= 1){
 						if((a>>(meow+1))%2 == 0){
 							vec.push_back(a+3*pow(2,meow));
-							/*
-							if(vec.back()==32767){
-                                                		value[a] = -1;
-                                        		}
-							*/
 							if(level-num >= 2){
 								if((a>>(meow+2))%2 == 0){
 									vec.push_back(a+7*pow(2,meow));
-									/*
-									if(vec.back()==32767){
-                                                				value[a] = -1;
-                                        				}
-									*/
 								}
 							}
 						}
@@ -62,40 +58,20 @@ void find_children(void){
 						int meow2 = sigma + num - 1;
 						if((a>>meow2)%2 == 0){
 							vec.push_back(a + pow(2,meow) + pow(2,meow2));
-							/*
-							if(vec.back()==32767){
-                                                                value[a] = -1;
-                                                        }
-							*/
 							if(level != 4){
 								int meow3 = meow2 + level + 1;
 								if((a>>meow3)%2 == 0){
 									vec.push_back(a + pow(2,meow) + pow(2,meow2) + pow(2,meow3));
-									/*
-									if(vec.back()==32767){
-                                                                                value[a] = -1;
-                                                                        }
-									*/
 								}
 							}
 						}
 						meow2 += 1;
 						if((a>>meow2)%2 == 0){
 							vec.push_back(a + pow(2,meow) + pow(2,meow2));
-							/*
-							if(vec.back()==32767){
-                                                        	value[a] = -1;
-                                                        }
-							*/
 							if(level != 4){
 								int meow3 = meow2 + level + 2;
 								if((a>>meow3)%2 == 0){
 									vec.push_back(a + pow(2,meow) + pow(2,meow2) + pow(2,meow3));
-									/*
-									if(vec.back()==32767){
-                                                                                value[a] = -1;
-                                                                        }
-									*/
 								}
 							}
 						}
@@ -110,18 +86,6 @@ void find_children(void){
 
 void set_value(void){
 	for(int index = 0 ; index < 32768; index++){
-		/*
-		int counter = 0;
-		for(int a = 0; a < child[index].size(); a++){
-			if(value[child[index][a]] == -1){
-				counter++;
-			}
-		}
-		if(counter == child[index].size()){
-			value[index] = 1;
-			//output(index);
-		}
-		*/
 		if(value[index] == 0){
 			zero_val.push_back(index);
 		}
@@ -144,19 +108,9 @@ void set_value(void){
 			}
 			if(counter == child[zero_val[index]].size()){
 				value[zero_val[index]] = 1;
-				//cout << zero_val[index] << " ";
 				zero_val.erase(zero_val.begin()+index);
 				index--;
 			}
-			/*if(zero_val.size() == 30000){
-				cout << "3" << endl;
-			}
-			if(zero_val.size() == 20000){
-                                cout << "2" << endl;
-                        }
-			if(zero_val.size() == 10000){
-                                cout << "1" << endl;
-                        }*/
 		}
 		if(zero_val.empty()){
 			lock = false;
@@ -214,7 +168,6 @@ int AI_move(int index){
 		}
 	}
 	if(vec.empty()){
-		//cout <<  "YOU'VE beat me?" << endl;
 		int buf[2]={0};
 		for(int b = 0; b < child[index].size(); b++){
 			int counter = 0;
@@ -228,7 +181,6 @@ int AI_move(int index){
 				buf[0] = 100*counter/child[child[index][b]].size();
 			}
 		}
-		//cout << buf[0] << endl;
 		output(child[index][buf[1]]);
 		return child[index][buf[1]];
 	}
@@ -246,7 +198,6 @@ int input(int index){
 	if(a.size() == 1){
 		int b;//-48
 		b = a[0];
-		//cout << b;
 		if(b >= 48 && b <= 57){
 			if((index>>(b-48))%2 == 0){
 				index += pow(2,b-48);
@@ -423,32 +374,11 @@ void game_start(void){
 		}
 	}
 }
-/*           1
-           2   4
-         8  16  32
-       64 128 256 512
-  1024 2048 4096 8192 16384
-        *
-       * *
-      * * *
-     * * * *
-    * * * * *
-*/
 int main(){
 	find_children();
 	set_value();
 	cout << '\r';
 	game_start();
-	/*
-	int index;
-	cin >> index;
-	cout << value[index] << endl;
-	output(index);
-	for(int a = 0; a < child[index].size(); a++){
-		cout << value[child[index][a]] << endl;
-		output(child[index][a]);
-	}
-	*/
 	cout << "See you next time!" << endl;
 	return 0;
 }
