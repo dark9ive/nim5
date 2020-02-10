@@ -5,10 +5,21 @@
 A simple C++ code of the nim game and AI.  
 You can either play with the other player local or play with my AI.
 
-### Game rules
+## Game rules
 
 You can find the basic rules of nim [here](https://en.wikipedia.org/wiki/Nim).  
 In this project, there are 5 rows of pieces, and the ___N___-th row contains ___N___ pieces.  
+So the gameboard is as follows:
+
+```
+Row No.
+
+   1          *
+   2         * *
+   3        * * *
+   4       * * * *
+   5      * * * * *
+```
 
 ## Compile environment
 
