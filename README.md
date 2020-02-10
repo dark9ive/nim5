@@ -3,7 +3,12 @@
 ## intro
 
 A simple C++ code of the nim game and AI.  
-You can either play with the other player locally or play with my AI.  
+You can either play with the other player local or play with my AI.
+
+### Game rules
+
+You can find the basic rules of nim [here](https://en.wikipedia.org/wiki/Nim).  
+In this project, there are 5 rows of pieces, and the _N_-th row contains _N_ pieces.  
 
 ## Compile environment
 
